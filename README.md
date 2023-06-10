@@ -26,7 +26,7 @@ Get address by zipcode, by searching the viacep API
     - Enable annotation processers from your IDE;
     
       
-## Steps to run the program:
+## Steps to run the program by IDE:
 
     - Clone the project: https://github.com/CarlosFernandoXavier/address-api.git;
     - Open the project in your IDE;
@@ -43,7 +43,7 @@ Get address by zipcode, by searching the viacep API
     - Maven;
 
       
-## Steps to run the program:
+## Steps to run the program by .jar:
 
     - Clone the project: https://github.com/CarlosFernandoXavier/address-api.git;
     - Open the terminal at the this path: address-api/adapter/target
