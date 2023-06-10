@@ -49,7 +49,6 @@ public class AddressRepository implements AddressRepositoryPort {
                     .get()
                     .getBody();
 
-            Integer a = 90;
             Address address = modelMapper.map(addressEntity, Address.class);
             String logMessage = String.format(RETURN_MESSAGE, convertToJson(address));
             log.info(logMessage);
