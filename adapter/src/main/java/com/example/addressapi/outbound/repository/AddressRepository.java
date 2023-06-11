@@ -1,8 +1,8 @@
 package com.example.addressapi.outbound.repository;
 
 import com.example.addressapi.domain.Address;
-import com.example.addressapi.exception.BadRequestServiceException;
 import com.example.addressapi.outbound.entity.AddressEntity;
+import com.example.addressapi.outbound.exception.BadRequestException;
 import com.example.addressapi.outbound.exception.BusinessException;
 import com.example.addressapi.outbound.properties.AddressPropertie;
 import com.example.addressapi.port.AddressRepositoryPort;
@@ -55,7 +55,7 @@ public class AddressRepository implements AddressRepositoryPort {
             return address;
 
         } catch (ExecutionException e) {
-            throw new BadRequestServiceException();
+            throw new BadRequestException();
         } catch (Exception e) {
             String message = String.format(FAILED_MESSAGE, e.getMessage());
             log.error(message, e);

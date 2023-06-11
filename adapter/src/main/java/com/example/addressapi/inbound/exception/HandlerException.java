@@ -1,6 +1,6 @@
 package com.example.addressapi.inbound.exception;
 
-import com.example.addressapi.exception.BadRequestServiceException;
+import com.example.addressapi.outbound.exception.BadRequestException;
 import com.example.addressapi.outbound.exception.BusinessException;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
@@ -37,10 +37,10 @@ public class HandlerException {
         return new ErrorMessage(HttpStatus.INTERNAL_SERVER_ERROR, message, path);
     }
 
-    @ExceptionHandler(value = {BadRequestServiceException.class})
+    @ExceptionHandler(value = {BadRequestException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
-    public ErrorMessage handleBadRequestException(final BadRequestServiceException ex, WebRequest request) {
+    public ErrorMessage handleBadRequestException(final BadRequestException ex, WebRequest request) {
         String path = getPath(request.getDescription(false));
         final String message = ex.getMessage();
         return new ErrorMessage(HttpStatus.BAD_REQUEST, message, path);
