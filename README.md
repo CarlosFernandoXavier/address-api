@@ -54,5 +54,5 @@ Get address by zipcode, by searching the viacep API
 ## Curl to make the request:
     curl --location 'localhost:8080/v1/get-address?zipcode=95603620'
     
-## Swagger of application:
+## Link to access the user interface, when the application is running:
     http://localhost:8080/swagger-ui/index.html
