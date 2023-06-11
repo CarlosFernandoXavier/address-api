@@ -33,8 +33,8 @@ Get address by zipcode, by searching the viacep API
     - Execute the command: mvn clean install;
     - Execute the AddressApiApplication class;
     - Open Postman;
-    - Import the curl;
-    - Execute the request;
+        - Import the curl;
+        - Execute the request;
     
 
 ## Requirements to run by .jar:
@@ -54,5 +54,5 @@ Get address by zipcode, by searching the viacep API
 ## Curl to make the request:
     curl --location 'localhost:8080/v1/get-address?zipcode=95603620'
     
-##Swagger of application:
+## Swagger of application:
     http://localhost:8080/swagger-ui/index.html
