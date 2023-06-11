@@ -4,5 +4,5 @@ import com.example.addressapi.domain.Address;
 
 public interface AddressRepositoryPort {
 
-    Address getAddress(String cep);
+    Address getAddress(String zipcode);
 }

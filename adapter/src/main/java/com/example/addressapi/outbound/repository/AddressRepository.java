@@ -35,9 +35,9 @@ public class AddressRepository implements AddressRepositoryPort {
     }
 
     @Override
-    public Address getAddress(String cep) {
+    public Address getAddress(String zipcode) {
 
-        String url = propertie.getUrlAddress().replaceFirst("/cep/", "/" + cep + "/");
+        String url = propertie.getUrlAddress().replaceFirst("/cep/", "/" + zipcode + "/");
         log.info("Calling the viacep service: " + url);
         try {
             AddressEntity addressEntity = webClient

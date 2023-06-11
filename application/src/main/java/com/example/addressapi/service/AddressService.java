@@ -11,6 +11,7 @@ public class AddressService implements AddressServicePort {
     public AddressService(AddressRepositoryPort addressRepository) {
         this.addressRepository = addressRepository;
     }
+
     @Override
     public Address getAddress(String zipcode) {
           return addressRepository.getAddress(zipcode);
