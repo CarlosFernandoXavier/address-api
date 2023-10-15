@@ -3,8 +3,8 @@
 Get address by zipcode, by searching the viacep API
 
 
+![ezgif com-video-to-gif](https://github.com/CarlosFernandoXavier/address-api/assets/21314576/8f391798-5043-4820-9ee7-e5904db8abdc)
 
-Uploading simplescreenrecorder-2023-10-15_11.20.10 (online-video-cutter.com).mp4…
 
 
 
