@@ -3,7 +3,9 @@
 Get address by zipcode, by searching the viacep API
 
 
-![simplescreenrecorder-2023-10-15_11 20 10 (online-video-cutter com)](https://github.com/CarlosFernandoXavier/address-api/assets/21314576/d0f74ed1-3c76-437c-97bd-024a105a7f98)
+
+https://github.com/CarlosFernandoXavier/address-api/assets/21314576/c6d08783-8dbd-48a6-adb2-f76d9cc14eb1
+
 
 
 
