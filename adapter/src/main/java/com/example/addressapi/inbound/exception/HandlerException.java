@@ -24,8 +24,8 @@ public class HandlerException {
     @ResponseBody
     public ErrorMessage handleResponseStatusException(final BusinessException ex, WebRequest request) {
         String path = getPath(request.getDescription(false));
-
-        return new ErrorMessage(HttpStatus.PRECONDITION_FAILED, "message", path);
+        String message = ex.getMessage();
+        return new ErrorMessage(HttpStatus.PRECONDITION_FAILED, message, path);
     }
 
     @ExceptionHandler(value = {Exception.class})
