@@ -4,13 +4,14 @@ import com.example.addressapi.domain.Address;
 import com.example.addressapi.outbound.entity.AddressEntity;
 import com.example.addressapi.outbound.exception.BadRequestException;
 import com.example.addressapi.outbound.exception.BusinessException;
-import com.example.addressapi.outbound.properties.AddressPropertie;
+import com.example.addressapi.outbound.properties.AddressProperty;
 import com.example.addressapi.port.AddressRepositoryPort;
 import com.example.addressapi.utils.ModelMapperUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 import java.util.concurrent.ExecutionException;
 
@@ -22,22 +23,22 @@ public class AddressRepository implements AddressRepositoryPort {
 
     private static final String RETURN_MESSAGE = "Response returned from viacep service: %s";
     private static final String FAILED_MESSAGE = "Failed to call viacep service - captured message: %s";
-    private AddressPropertie propertie;
-     private ModelMapper modelMapper;
-
+    private AddressProperty property;
+    private ModelMapper modelMapper;
     private WebClient webClient;
 
-    public AddressRepository(ModelMapper modelMapper, ModelMapperUtils modelMapperUtils, AddressPropertie propertie) {
+    public AddressRepository(ModelMapper modelMapper, ModelMapperUtils modelMapperUtils, AddressProperty property,
+                             WebClient webClient) {
         modelMapperUtils.createConfigurationAddressToAddressEntity(modelMapper);
         this.modelMapper = modelMapper;
-        this.propertie = propertie;
-        this.webClient = WebClient.create();
+        this.property = property;
+        this.webClient = webClient;
     }
 
     @Override
     public Address getAddress(String zipcode) {
 
-        String url = propertie.getUrlAddress().replaceFirst("/cep/", "/" + zipcode + "/");
+        String url = property.getUrlAddress().replaceFirst("/cep/", "/" + zipcode + "/");
         log.info("Calling the viacep service: " + url);
         try {
             AddressEntity addressEntity = webClient
@@ -48,6 +49,7 @@ public class AddressRepository implements AddressRepositoryPort {
                     .toFuture()
                     .get()
                     .getBody();
+
 
             Address address = modelMapper.map(addressEntity, Address.class);
             String logMessage = String.format(RETURN_MESSAGE, convertToJson(address));

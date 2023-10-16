@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AddressPropertie {
+public class AddressProperty {
 
     @Value("${url.address.api}")
     private String urlAddress;

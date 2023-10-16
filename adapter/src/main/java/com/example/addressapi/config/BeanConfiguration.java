@@ -6,6 +6,7 @@ import com.example.addressapi.utils.ModelMapperUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
 public class BeanConfiguration {
@@ -24,4 +25,10 @@ public class BeanConfiguration {
     ModelMapperUtils modelMapperUtils() {
         return new ModelMapperUtils();
     }
+
+    @Bean
+    WebClient webClient() {
+        return WebClient.create();
+    }
+
 }
