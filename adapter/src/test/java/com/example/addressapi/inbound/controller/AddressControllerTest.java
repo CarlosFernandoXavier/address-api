@@ -1,7 +1,7 @@
 package com.example.addressapi.inbound.controller;
 
 import com.example.addressapi.domain.Address;
-import com.example.addressapi.inbound.response.CustomerResponse;
+import com.example.addressapi.model.CustomerResponse;
 import com.example.addressapi.outbound.exception.BadRequestException;
 import com.example.addressapi.outbound.exception.BusinessException;
 import com.example.addressapi.outbound.repository.AddressRepository;
@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -24,6 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+//TODO corrigir esta classe
 @SpringBootTest
 @AutoConfigureMockMvc
 class AddressControllerTest {

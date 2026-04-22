@@ -1,0 +1,74 @@
+openapi: 3.0.4
+info:
+  title: CEP API
+  version: 0.0.1
+  description: API para consulta de dados do CEP fornecido
+servers:
+  - url: /
+paths:
+  /v1/get-address:
+    get:
+      operationId: getAddress
+      summary: Retorna informações do CEP fornecido
+      parameters:
+        - in: query
+          name: zipcode
+          required: true
+          schema:
+            type: string
+          description: CEP
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerResponse'
+        '400':
+          description: Requisição inválida
+        '500':
+          description: Erro interno do servidor
+
+components:
+  schemas:
+    CustomerResponse:
+      type: object
+      description: Representação de concursos públicos
+      properties:
+        zipCode:
+          type: string
+          example: 12902020
+        streetAddress:
+          type: string
+          example: Avenida Nipo-Brasileira
+        complement:
+          type: string
+          example: casa
+        neighborhood:
+          type: string
+          example: Jardim Bela Vista
+        locality:
+          type: string
+          example: Bragança Paulista
+        fu:
+          type: string
+          example: SP
+        ibge:
+          type: string
+          example: 3507605
+        gia:
+          type: string
+        ddd:
+          type: string
+          example: 11
+        siafi:
+          type: string
+          example: 6251
+
+
+
+
+
+
+
+

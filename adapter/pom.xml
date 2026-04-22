@@ -86,6 +86,19 @@
            <!-- <version>5.6.0</version>-->
             <scope>test</scope>
         </dependency>
+        <!-- Gerador contrato swagger-->
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>openapi-generator-maven-plugin</artifactId>
+            <version>4.2.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>0.2.6</version> <!-- Verifique a versão mais estável no Maven Central -->
+        </dependency>
+
 
     </dependencies>
 
@@ -103,6 +116,38 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>4.2.2</version>
+                <executions>
+                    <execution>
+                        <id>spring-server</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <!-- specify the swagger yaml -->
+                            <inputSpec>${project.basedir}/src/main/resources/addres-api.yaml</inputSpec>
+                            <!-- target to generate java client code -->
+                            <generatorName>spring</generatorName>
+                            <apiPackage>com.example.addressapi.controller.api</apiPackage>
+                            <modelPackage>com.example.addressapi.model</modelPackage>
+
+                            <!-- pass any necessary config options -->
+                            <configOptions>
+                                <interfaceOnly>true</interfaceOnly>
+                                <serializableModel>true</serializableModel>
+                                <snapshotVersion>true</snapshotVersion>
+                                <!--<openApiNullable>false</openApiNullable>-->
+                            </configOptions>
+
+                        </configuration>
+                    </execution>
+
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 
