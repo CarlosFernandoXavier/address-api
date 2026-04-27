@@ -22,7 +22,7 @@ public class AddressController implements V1Api {
 
    @Override
     public ResponseEntity<CustomerResponse> getAddress(String zipcode) {
-        log.info("Starting process to get the address...");
+        log.info("Starting process to get the address... ");
         Address address = addressServicePort.getAddress(zipcode);
         CustomerResponse customerResponse = modelMapper.map(address, CustomerResponse.class);
         log.info("Response returned to user: " + convertToJson(customerResponse));
